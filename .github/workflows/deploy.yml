@@ -16,7 +16,9 @@ jobs:
       - run: npm run cf:build
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
+        env:
+          CLOUDFLARE_ACCOUNT_ID: "427d363fcb1ad0ce5fb5f273f2896dd4"
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 427d363fcb1ad0ce5fb5f273f2896dd4
-          command: deploy
+          command: deploy .open-next/worker.js
