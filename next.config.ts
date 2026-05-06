@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Cloudflare 适配：跳过 Next.js Image 优化（Workers 不支持 sharp）
+  // 部分平台（如 Cloudflare Workers、部分国内 Serverless）不支持 sharp，保持无优化更通用
   images: {
     unoptimized: true,
   },
