@@ -14,10 +14,8 @@ jobs:
           node-version: 22
       - run: npm ci
       - run: npm run cf:build
-      - run: ls -la .open-next/
       - name: Deploy
         run: npm exec wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: "427d363fcb1ad0ce5fb5f273f2896dd4"
-          WRANGLER_LOG: debug
